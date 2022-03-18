@@ -1,6 +1,6 @@
 {
   "name": "anagram-words",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Return anagram words if existed from the given string",
   "main": "index.js",
   "scripts": {
