@@ -1,7 +1,7 @@
 {
   "name": "anagram-words",
-  "version": "1.0.1",
-  "description": "Return anagram words if existed from the given string",
+  "version": "1.0.2",
+  "description": "find anagram words if existed from the given string/text, check if two strings are anagram word.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
