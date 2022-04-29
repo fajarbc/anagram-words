@@ -1,6 +1,8 @@
-## anagram-words
+# anagram-words
 
 Return anagram words if existed from the given string/text, check if two strings are anagram word.
+
+It has npm package here called [anagram-words](https://www.npmjs.com/package/anagram-words)
 
 ## Install
 ```sh
@@ -21,8 +23,8 @@ console.log(aw.isAnagram("mything", "My night", {space: true})) // output: false
 console.log(aw.isAnagram("Thing", "Night", {caseSensitive: true})) // output: false
 ```
 
-# Function
-## findPattern
+## Function
+### findPattern
 ```findPattern(pattern, text, options)```
 - Description: return anagram words/sequences from the given string (text) if existed
 - Return type `array`
@@ -39,7 +41,7 @@ console.log(aw.isAnagram("Thing", "Night", {caseSensitive: true})) // output: fa
     const aw = require("anagram-words")
     console.log(aw.findPattern("car", "race car care", {space: true, unique: true})) // output: [ 'rac', 'car' ]
     ```
-## isAnagram
+### isAnagram
 ```isAnagram(string1, string2, options)```
 - Description: Check if two strings are anagram
 - Return type `boolean`. `true` if it is anagram, `false` if it is not anagram
