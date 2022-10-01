@@ -4,7 +4,7 @@
   "description": "Check if text contain pattern as anagram, check if two words are anagram, check if word is polindrome",
   "main": "src/index.js",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@fajarbc:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "test": "jest"
