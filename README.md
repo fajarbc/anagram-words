@@ -84,7 +84,7 @@ console.log(anagramWords.isPalindrome("Race car", {caseSensitive: true, space: t
 - Example use :
     ```javascript
     const anagramWords = require("anagram-words")
-    console.log(anagramWords.isPalindrome("Race car")) // output: false
+    console.log(anagramWords.isPalindrome("Race car")) // output: true
     console.log(anagramWords.isPalindrome("Racecar", {caseSensitive: true})) // output: false
     console.log(anagramWords.isPalindrome("race car", {space: true})) // output: false
     ```
