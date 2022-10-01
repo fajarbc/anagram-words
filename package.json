@@ -11,10 +11,10 @@
     "url": "git+https://github.com/fajarbc/anagram-words.git"
   },
   "keywords": [
+    "anagram-words",
     "anagram",
-    "anagram",
-    "words",
-    "anagram-words"
+    "palindrome",
+    "words"
   ],
   "author": "Fajar BC",
   "license": "ISC",

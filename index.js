@@ -1,7 +1,17 @@
 const { compare, createHash, applyOptions } = require("./utilities");
 
-function findPattern(pattern, text, { space = false, unique = false, caseSensitive = false } = {}) {
-  let words = [];
+/**
+ * Return anagram words/sequences from the given string if any
+ * @param {string} pattern - The sequence string you look for in in the text
+ * @param {string} text - The whole string you want to look for the pattern
+ * @param {Object} [options] - Options for customization
+ * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive
+ * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character
+ * @param {boolean} [options.unique=false] - true = return only unique sequence. false = return all sequence
+ * @returns {Array} anagram words/sequences
+ */
+function findPattern(pattern, text, { caseSensitive = false, space = false, unique = false }) {
+  const words = [];
   let word;
 
   // apply options
@@ -27,20 +37,31 @@ function findPattern(pattern, text, { space = false, unique = false, caseSensiti
   return words;
 }
 
-function isAnagram(string1, string2, { space = false, caseSensitive = false } = {}) {
-  // string1 as pattern, string2 as text
-  if (string1 == string2) return true;
+/**
+ * Check if two words are palindrome
+ * @param {string} word1 
+ * @param {string} word2 
+ * @param {Object} [options] - Options for customization
+ * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive
+ * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character
+ * @returns {boolean} - is two words are palindrome
+ */
+function arePalindrome(word1, word2, { caseSensitive = false, space = false } = {}) {
+  // word1 as pattern, word2 as text
+  if (word1 == word2) return true;
 
   // apply options
-  [string1, string2] = applyOptions(string1, string2, space, caseSensitive)
+  [word1, word2] = applyOptions(word1, word2, space, caseSensitive)
 
-  if (string1.length != string2.length) return false;
+  if (word1.length != word2.length) return false;
   // create hash and compare
-  let { pw, tw } = createHash(string1, string2);
+  let { pw, tw } = createHash(word1, word2);
   return compare(pw, tw);
 }
 
 module.exports = {
   findPattern: findPattern,
-  isAnagram: isAnagram,
+  arePalindrome: arePalindrome,
+  // for backward compatibility v1.0.2
+  isAnagram: arePalindrome, // wrong naming hehe (^_^")
 };
