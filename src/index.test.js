@@ -1,4 +1,4 @@
-const { isAnagram, arePalindrome, findPattern } = require("./index");
+const { isPalindrome, areAnagram, findPattern } = require("./index");
 
 describe("findPattern function test", () => {
   test("Default option", () => {
@@ -55,34 +55,34 @@ describe("findPattern function test", () => {
     expect(received).toStrictEqual(expected);
   });
 });
-describe("isAnagram function test", () => {
+describe("isPalindrome function test", () => {
   test("Deafult option #1 : odd", () => {
-    const received = isAnagram("Race car");
+    const received = isPalindrome("Race car");
     const expected = true;
     expect(received).toStrictEqual(expected);
   });
   test("Deafult option #2 : even", () => {
-    const received = isAnagram("Race Ecar");
+    const received = isPalindrome("Race Ecar");
     const expected = true;
     expect(received).toStrictEqual(expected);
   });
   test("Deafult option #2 : false", () => {
-    const received = isAnagram("mything", "My night");
+    const received = isPalindrome("mything", "My night");
     const expected = false;
     expect(received).toStrictEqual(expected);
   });
   test("Option: caseSensitive is true", () => {
-    const received = isAnagram("Racecar", { caseSensitive: true });
+    const received = isPalindrome("Racecar", { caseSensitive: true });
     const expected = false;
     expect(received).toStrictEqual(expected);
   });
   test("Option: space is true", () => {
-    const received = isAnagram("race car", { space: true });
+    const received = isPalindrome("race car", { space: true });
     const expected = false;
     expect(received).toStrictEqual(expected);
   });
   test("Option: caseSensitive is true, space is true #1 : true", () => {
-    const received = isAnagram("Rac e caR", {
+    const received = isPalindrome("Rac e caR", {
       caseSensitive: true,
       space: true,
     });
@@ -90,15 +90,7 @@ describe("isAnagram function test", () => {
     expect(received).toStrictEqual(expected);
   });
   test("Option: caseSensitive is true, space is true #2 : false", () => {
-    const received = isAnagram("Mything", "My night", {
-      caseSensitive: true,
-      space: true,
-    });
-    const expected = false;
-    expect(received).toStrictEqual(expected);
-  });
-  test("Option: caseSensitive is true, space is true #3", () => {
-    const received = isAnagram("my thing", "My night", {
+    const received = isPalindrome("Race car", {
       caseSensitive: true,
       space: true,
     });
@@ -106,32 +98,32 @@ describe("isAnagram function test", () => {
     expect(received).toStrictEqual(expected);
   });
 });
-describe("arePalindrome function test", () => {
+describe("areAnagram function test", () => {
   test("Deafult option", () => {
-    const received = arePalindrome("mything", "My night");
+    const received = areAnagram("mything", "My night");
     const expected = true;
     expect(received).toStrictEqual(expected);
   });
   test("Option: caseSensitive is true", () => {
-    const received = arePalindrome("Thing", "Night", { caseSensitive: true });
+    const received = areAnagram("Thing", "Night", { caseSensitive: true });
     const expected = false;
     expect(received).toStrictEqual(expected);
   });
   test("Option: space is true", () => {
-    const received = arePalindrome("mything", "My night", { space: true });
+    const received = areAnagram("mything", "My night", { space: true });
     const expected = false;
     expect(received).toStrictEqual(expected);
   });
-  test("Option: caseSensitive is true, space is true #1", () => {
-    const received = arePalindrome("My thing", "My night", {
+  test("Option: caseSensitive is true, space is true #1 : true", () => {
+    const received = areAnagram("My thing", "My night", {
       caseSensitive: true,
       space: true,
     });
     const expected = true;
     expect(received).toStrictEqual(expected);
   });
-  test("Option: caseSensitive is true, space is true #2", () => {
-    const received = arePalindrome("Mything", "My night", {
+  test("Option: caseSensitive is true, space is true #2 : false", () => {
+    const received = areAnagram("Mything", "My Night", {
       caseSensitive: true,
       space: true,
     });
@@ -139,7 +131,7 @@ describe("arePalindrome function test", () => {
     expect(received).toStrictEqual(expected);
   });
   test("Option: caseSensitive is true, space is true #3", () => {
-    const received = arePalindrome("my thing", "My night", {
+    const received = areAnagram("my thing", "My night", {
       caseSensitive: true,
       space: true,
     });
