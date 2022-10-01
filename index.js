@@ -5,17 +5,17 @@ const { compare, createHash, applyOptions } = require("./utilities");
  * @param {string} pattern - The sequence string you look for in in the text
  * @param {string} text - The whole string you want to look for the pattern
  * @param {Object} [options] - Options for customization
- * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive
- * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character
- * @param {boolean} [options.unique=false] - true = return only unique sequence. false = return all sequence
+ * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive. Default is false
+ * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character. Default is false
+ * @param {boolean} [options.unique=false] - true = return only unique sequence. false = return all sequence. Default is false
  * @returns {Array} anagram words/sequences
  */
-function findPattern(pattern, text, { caseSensitive = false, space = false, unique = false }) {
+function findPattern(pattern, text, { caseSensitive = false, space = false, unique = false } = {}) {
   const words = [];
   let word;
 
   // apply options
-  [pattern, text] = applyOptions(pattern, text, space, caseSensitive)
+  [pattern, text] = applyOptions([pattern, text], caseSensitive, space)
 
   let p = pattern.split("");
   let t = text.split("");
@@ -38,30 +38,47 @@ function findPattern(pattern, text, { caseSensitive = false, space = false, uniq
 }
 
 /**
- * Check if two words are palindrome
- * @param {string} word1 
- * @param {string} word2 
+ * Check if two words are anagram
+ * @param {string} word - The word to check 
  * @param {Object} [options] - Options for customization
- * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive
- * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character
+ * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive. Default is false
+ * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character. Default is false
  * @returns {boolean} - is two words are palindrome
  */
-function arePalindrome(word1, word2, { caseSensitive = false, space = false } = {}) {
-  // word1 as pattern, word2 as text
-  if (word1 == word2) return true;
+function isAnagram(word, { caseSensitive = false, space = false } = {}) {
+  word = applyOptions(word, caseSensitive, space)
+  const len = word.length
+
+  for (let i = 0; i < Math.floor(len/2); i++)
+    if(word[i] != word[len-i-1]) return false
+
+  return true
+}
+
+/**
+ * Check if two words are palindrome
+ * @param {string} word 
+ * @param {string} word2 
+ * @param {Object} [options] - Options for customization
+ * @param {boolean} [options.caseSensitive=false] - true = case sensitive. false = case insensitive. Default is false
+ * @param {boolean} [options.space=false] - true = space is count. false = space is not count as character. Default is false
+ * @returns {boolean} - is two words are palindrome
+ */
+function arePalindrome(word, word2, { caseSensitive = false, space = false } = {}) {
+  // word as pattern, word2 as text
+  if (word == word2) return true;
 
   // apply options
-  [word1, word2] = applyOptions(word1, word2, space, caseSensitive)
+  [word, word2] = applyOptions([word, word2], caseSensitive, space)
 
-  if (word1.length != word2.length) return false;
-  // create hash and compare
-  let { pw, tw } = createHash(word1, word2);
+  if (word.length != word2.length) return false;
+  // create hash and compare <-- wrong. should strict to the order also
+  let { pw, tw } = createHash(word, word2);
   return compare(pw, tw);
 }
 
 module.exports = {
   findPattern: findPattern,
   arePalindrome: arePalindrome,
-  // for backward compatibility v1.0.2
-  isAnagram: arePalindrome, // wrong naming hehe (^_^")
+  isAnagram: isAnagram,
 };

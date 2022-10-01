@@ -34,7 +34,7 @@ console.log(aw.arePalindrome("Thing", "Night", {caseSensitive: true})) // output
   | Parameter | Type | Deafult | Description |
   | --------- | :----: | :-------: | ----------- |
   | space | boolean | false | `true` means space counted as a character.<br> `false` means space is not counted as character and will be ignored |
-  | caseSeneitive | boolean | false | `true` means case sensitive character.<br> `false` means case insensitive |
+  | caseSensitive | boolean | false | `true` means case sensitive character.<br> `false` means case insensitive |
   | unique | boolean | false | `true` only return unique sequence result.<br> `false` will return all sequence result |
 - Example use :
     ```javascript
@@ -50,7 +50,7 @@ console.log(aw.arePalindrome("Thing", "Night", {caseSensitive: true})) // output
   | Parameter | Type | Deafult | Description |
   | --------- | :----: | :-------: | ----------- |
   | space | boolean | false | `true` means space counted as a character.<br> `false` means space is not counted as character and will be ignored |
-  | caseSeneitive | boolean | false | `true` means case sensitive character.<br> `false` means case insensitive |
+  | caseSensitive | boolean | false | `true` means case sensitive character.<br> `false` means case insensitive |
 - Example use :
     ```javascript
     const aw = require("anagram-words")

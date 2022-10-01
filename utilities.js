@@ -10,6 +10,13 @@ function replaceAll(string, find, replace) {
 }
 
 module.exports = {
+  replaceAll: replaceAll,
+  /**
+   * Look for same key & value from a into b. In other words, check if a is part of b
+   * @param {Object} a - Object key and value to look for 
+   * @param {Object} b - Object key and value to look into
+   * @returns {boolean} true if a is part of b
+   */
   compare: (a, b) => {
     for (const key of Object.keys(a)) if (a[key] != b[key]) return false;
 
@@ -32,25 +39,22 @@ module.exports = {
     return { pw, tw };
   },
   /**
-   * Apply options to pattern and text
-   * @param {string} pattern - The sequence string you look for in in the text
-   * @param {string} text - The whole string you want to look for the pattern
-   * @param {boolean} caseSensitive - true = case sensitive. false = case insensitive
-   * @param {boolean} space - true = space is count. false = space is not count as character
+   * Apply options to text or array of text
+   * @param {string|Array} text - The text you want to apply options on
+   * @param {boolean} [caseSensitive=false] - true = case sensitive. false = case insensitive. Default is false
+   * @param {boolean} [space=false] - true = space is count. false = space is not count as character. Default is false
    * @returns {Array} [pattern, text]
    */
-  applyOptions: (pattern, text, space, caseSensitive) => {
-    // remove space
-    if (!space) {
-      pattern = replaceAll(pattern, " ", "");
-      text = replaceAll(text, " ", "");
+  applyOptions: (text, caseSensitive = false, space = false) => {
+    if(typeof text === "string") {
+      if (!space) text = replaceAll(text, " ", ""); // remove space
+      if (!caseSensitive) text = text.toLowerCase(); // transform to lower case
+    } else {
+      for (let i = 0; i < text.length; i++) {
+        if (!space) text[i] = replaceAll(text[i], " ", ""); // remove space
+        if (!caseSensitive) text[i] = text[i].toLowerCase(); // transform to lower case
+      }
     }
-
-    // transform to lower case
-    if (!caseSensitive) {
-      pattern = pattern.toLowerCase();
-      text = text.toLowerCase();
-    }
-    return [pattern, text];
+    return text;
   },
 };

@@ -1,10 +1,10 @@
 {
   "name": "anagram-words",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "description": "find anagram words if existed from the given string/text, check if two strings are anagram word.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/fajarbc/anagram-words/issues"
   },
-  "homepage": "https://github.com/fajarbc/anagram-words#readme"
+  "homepage": "https://github.com/fajarbc/anagram-words#readme",
+  "devDependencies": {
+    "jest": "^29.1.2"
+  }
 }
