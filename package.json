@@ -1,8 +1,11 @@
 {
   "name": "anagram-words",
-  "version": "1.1.1",
-  "description": "find anagram words if existed from the given string/text, check if two strings are anagram word.",
-  "main": "index.js",
+  "version": "1.2.0",
+  "description": "Check if text contain pattern as anagram, check if two words are anagram, check if word is polindrome",
+  "main": "src/index.js",
+  "publishConfig": {
+    "@fajarbc:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "test": "jest"
   },
