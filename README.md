@@ -27,12 +27,12 @@ console.log(anagramWords.areAnagram("Thing", "Night", {caseSensitive: true})) //
 console.log(anagramWords.areAnagram("My thing", "My night", {caseSensitive: true, space: true})) // output: true
 console.log(anagramWords.areAnagram("Mything", "My Night", {caseSensitive: true, space: true})) // output: false
 
-// areAnagram
-console.log(anagramWords.areAnagram("Race car")) // output: true
-console.log(anagramWords.areAnagram("Racecar", {caseSensitive: true})) // output: false
-console.log(anagramWords.areAnagram("race car", {space: true})) // output: false
-console.log(anagramWords.areAnagram("Rac e caR", {caseSensitive: true, space: true})) // output: true
-console.log(anagramWords.areAnagram("Race car", {caseSensitive: true, space: true})) // output: false
+// isPalindrome
+console.log(anagramWords.isPalindrome("Race car")) // output: true
+console.log(anagramWords.isPalindrome("Racecar", {caseSensitive: true})) // output: false
+console.log(anagramWords.isPalindrome("race car", {space: true})) // output: false
+console.log(anagramWords.isPalindrome("Rac e caR", {caseSensitive: true, space: true})) // output: true
+console.log(anagramWords.isPalindrome("Race car", {caseSensitive: true, space: true})) // output: false
 ```
 
 ## Function
