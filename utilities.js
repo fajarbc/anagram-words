@@ -1,5 +1,12 @@
-function replaceAll(str, find, replace) {
-  return str.replace(new RegExp(find, "g"), replace);
+/**
+ * Return new string with pattern "find" replaced by string "replace"
+ * @param {string} string - The string needs to be 
+ * @param {string} find - The pattern string to be replaced
+ * @param {string} replace - The string going to replace the pattern string
+ * @returns new replaced string
+ */
+function replaceAll(string, find, replace) {
+  return string.replace(new RegExp(find, "g"), replace);
 }
 
 module.exports = {
@@ -24,6 +31,14 @@ module.exports = {
 
     return { pw, tw };
   },
+  /**
+   * Apply options to pattern and text
+   * @param {string} pattern - The sequence string you look for in in the text
+   * @param {string} text - The whole string you want to look for the pattern
+   * @param {boolean} caseSensitive - true = case sensitive. false = case insensitive
+   * @param {boolean} space - true = space is count. false = space is not count as character
+   * @returns {Array} [pattern, text]
+   */
   applyOptions: (pattern, text, space, caseSensitive) => {
     // remove space
     if (!space) {

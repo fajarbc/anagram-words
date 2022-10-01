@@ -1,6 +1,6 @@
 # anagram-words
 
-Return anagram words if existed from the given string/text, check if two strings are anagram word.
+Return anagram words if existed from the given string/text, check if two strings are palindrome.
 
 It has npm package here called [anagram-words](https://www.npmjs.com/package/anagram-words)
 
@@ -18,9 +18,9 @@ console.log(aw.findPattern("car", "race car care", {unique: true})) // output: [
 console.log(aw.findPattern("car", "race car care", {space: true})) // output: [ 'rac', 'car', 'car' ]
 console.log(aw.findPattern("car", "race car care", {space: true, unique: true})) // output: [ 'rac', 'car' ]
 console.log(aw.findPattern("cAr", "race car cAre", {caseSensitive: true})) // output: [ 'rcA', 'cAr' ]
-console.log(aw.isAnagram("mything", "My night")) // output: true
-console.log(aw.isAnagram("mything", "My night", {space: true})) // output: false
-console.log(aw.isAnagram("Thing", "Night", {caseSensitive: true})) // output: false
+console.log(aw.arePalindrome("mything", "My night")) // output: true
+console.log(aw.arePalindrome("mything", "My night", {space: true})) // output: false
+console.log(aw.arePalindrome("Thing", "Night", {caseSensitive: true})) // output: false
 ```
 
 ## Function
@@ -41,11 +41,11 @@ console.log(aw.isAnagram("Thing", "Night", {caseSensitive: true})) // output: fa
     const aw = require("anagram-words")
     console.log(aw.findPattern("car", "race car care", {space: true, unique: true})) // output: [ 'rac', 'car' ]
     ```
-### isAnagram
-```isAnagram(string1, string2, options)```
-- Description: Check if two strings are anagram
-- Return type `boolean`. `true` if it is anagram, `false` if it is not anagram
-- `string1` and `string2` is the text/string you you want to check wether if it is anagram or not
+### arePalindrome
+```arePalindrome(word1, word2, options)```
+- Description: Check if two strings are palindrome
+- Return type `boolean`. `true` if they are palindrome, `false` if it is not anagram
+- `word1` and `word2` is the text/string you you want to check wether if they are palindrome or not
 - `options` (object) is an object to customize the options desribed bellow:
   | Parameter | Type | Deafult | Description |
   | --------- | :----: | :-------: | ----------- |
@@ -54,5 +54,6 @@ console.log(aw.isAnagram("Thing", "Night", {caseSensitive: true})) // output: fa
 - Example use :
     ```javascript
     const aw = require("anagram-words")
-    console.log(aw.isAnagram("Thing", "Night", {caseSensitive: true})) // output: false
+    console.log(aw.arePalindrome("Thing", "Night", {caseSensitive: true})) // output: false
+    console.log(aw.arePalindrome("Thing", "Night")) // output: true
     ```
