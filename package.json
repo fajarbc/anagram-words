@@ -27,5 +27,6 @@
   "homepage": "https://github.com/fajarbc/anagram-words#readme",
   "devDependencies": {
     "jest": "^29.1.2"
-  }
+  },
+  "files": ["src"]
 }

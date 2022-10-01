@@ -25,8 +25,8 @@ jobs:
         run: npm ci
 
       # Tests
-      # - name: Run tests
-      #   run: npm test
+      - name: Run tests
+        run: npm test
 
       # Configure Git
       - name: Git configuration
@@ -67,12 +67,12 @@ jobs:
         run: |
           git add "package.json"
           git add "CHANGELOG.md"
-          git commit -m "chore: release ${{ env.NEW_VERSION }}"
+          git commit -m "release ${{ env.NEW_VERSION }}"
           git tag ${{ env.NEW_VERSION }}
 
       # Publish version to public repository
       - name: Publish
-        run: yarn publish --verbose --access public --tag ${{ env.RELEASE_TAG }}
+        run: npm publish --verbose --access public --tag ${{ env.RELEASE_TAG }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
